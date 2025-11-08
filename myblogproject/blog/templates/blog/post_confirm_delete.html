@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Post</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+<body>
+    <h1>Delete Post</h1>
+
+    <p class="warning">
+        Are you sure you want to delete the post titled<br>
+        <strong>"{{ post.title }}"</strong>?<br>
+        This action cannot be undone.
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'post_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
